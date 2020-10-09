@@ -2,13 +2,16 @@ require_relative "../config/environment.rb"
 
 class Student
 
-  attr_accessor :name, :grade
-  attr_reader :id
+  attr_reader :id, :name, :type, :hp, :db
+  @@all = []
 
-  def initialize(id = nil, name, grade)
-      @name = name
-      @grade = grade
-      @id = id
+  def initialize (id:, name:, type:, hp: nil, db:)
+    @id = id
+    @name = name
+    @type = type
+    @hp = hp
+    @db = db
+    @@all << self
   end
 
   def self.create_table
